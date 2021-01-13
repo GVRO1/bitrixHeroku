@@ -1,10 +1,7 @@
 package com.example.demo;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/teste")
@@ -13,9 +10,10 @@ public class BitrixController {
     public ResponseEntity teste(){
         return ResponseEntity.ok("teste");
     }
-    @GetMapping("/{idDeal}")
-    public ResponseEntity webhookSaida(@PathVariable Integer idDeal){
+    @PostMapping("/{idDeal}")
+    public ResponseEntity webhookSaida(@PathVariable Integer idDeal,@RequestBody String json){
         System.out.println("idDeal: " + idDeal);
+        System.out.println("Corpo: " + json);
         return ResponseEntity.ok(idDeal);
     }
 }
