@@ -19,4 +19,12 @@ public class BitrixController {
         System.out.println("Corpo: " + json);
         return ResponseEntity.ok(idDeal);
     }
+
+    @PostMapping("/jira/{issueId}/{issueKey}")
+    public ResponseEntity webhookSaidaJira(@PathVariable Integer issueId,@PathVariable String issueKey,@RequestBody String json){
+        System.out.println("issueId: " + issueId);
+        System.out.println("issueKey: " + issueKey);
+        System.out.println("CorpoJira: " + json);
+        return ResponseEntity.ok(issueId);
+    }
 }
